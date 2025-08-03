@@ -17,12 +17,12 @@ A full-stack web application built using **Flask, z/OSMF, and Mainframe technolo
 - **JCL** is used to execute **REXX** and **COBOL** programs in batch mode
 
 
-app2.py              # Main **Flask** application
-login_logic.py       # Logic for **RACF** login functionality
-mytools_logic.py     # Tool selection logic
-infochk_logic.py     # Info check (search/add person, **DOB**)
-logging_logic.py     # Logging setup (optional)
-templates/           # **HTML** templates (Jinja2)
-rexxdb2f.rexx        # **REXX** to connect to **DB2** and fetch data
-cbldb2a.rexx         # **REXX** to read UI input and invoke **COBOL** via **ISPF EDIT macro**
-cbldb2a.cob          # **COBOL** to insert data into **DB2** via **JCL**
+- app2.py              # Main **Flask** application
+- login_logic.py       # Logic for **RACF** login functionality
+- mytools_logic.py     # Tool selection logic
+- infochk_logic.py     # Info check (search/add person, **DOB**)
+- logging_logic.py     # Logging setup (optional)
+- templates/           # **HTML** templates (Jinja2)
+- rexxdb2f.rexx        # **REXX** to connect to **DB2** and fetch data
+- cbldb2a.rexx         # **REXX** to read UI input and invoke **COBOL** via **ISPF EDIT macro**
+- cbldb2a.cob          # **COBOL** to insert data into **DB2** via **JCL**
