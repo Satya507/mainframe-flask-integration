@@ -22,27 +22,18 @@ def infochk():
     auth = (user, pwd)
     err=None
     if request.method=="POST":
-       print("chj")
        pname=request.form.get("pname").strip()
-       print("fgg",pname)
        
        findadd=request.form.get("findadd")
        if findadd != "find":
             dob=request.form.get("dob")
             sdtim=request.form.get("sdtim")
-            print("ff",sdtim)
-       print("findadd",findadd)
 
        headers3 = {
                   "X-CSRF-ZOSMF-HEADER": "dummy",
                   "Accept": "application/json",
                   "X-IBM-JCL-Symbol-PNAME": pname.upper()
                }
-
-    #    print("sdtime",sdtim)
-    #    print(sdtim[0:10])
-    #    print(sdtim[-5:])
-    #    sys.exit()
 
        if findadd=="find":
             iurl = "/restjobs/jobs"  
@@ -57,7 +48,6 @@ def infochk():
                 status_code=resfind.status_code
                 err_desc=f"INFOCHK ERROR: REASON: {error_reason} WITH RETURN-CODE: {status_code}"
                 return redirect(url_for("mytools_route", error_reason=error_reason, status_code=status_code, err_desc=err_desc)) 
-            print(resfind.json())
             time.sleep(2)
             iurl="/restfiles/ds/"+user+".ADDOUT"
             url=config.burl+iurl
@@ -69,17 +59,13 @@ def infochk():
                 return redirect(url_for("mytools_route", error_reason=error_reason, status_code=status_code, err_desc=err_desc))
             time.sleep(2)
             db2_dob=resfind.text.strip()
-            print(resfind.text)
             if db2_dob =='DOB':
-                print("gyu")
-                print("tttttt")
                 err="OOPS! DETAILS NOT FOUND IN DATABASE, PLEASE ADD YOUR DETAILS WITH ADD BUTTON"
                 err1=''
                 err=err+"<br>"+err1
                 flash(err,category="danger")
                 return render_template("infochk.html", pname=pname, dob="", disena="")
             else:
-                print("tttttt")
                 err="DETAILS FETCHED SUCCESSFULLY!"
                 err1=''
                 err=err+"<br>"+err1
@@ -89,9 +75,6 @@ def infochk():
        else:
             time_diff=0
             if sdtim:
-                print('jkll')
-                print(sdtim[0:10])
-                print(sdtim[-5:])
                 time_diff = calculate_time_difference(sdtim[0:10], sdtim[-5:])
                 if time_diff == -1:
                     err="ERROR: THE SCHEDULED DATE/TIME IN PAST"
@@ -107,7 +90,6 @@ def infochk():
             url=config.burl+iurl
             resadd = requests.put(url, data=mf_data, headers=headers1, auth=auth, verify=False)
             if resadd.status_code > 204:
-                print(resadd.json())
                 error_reason=resadd.json()
                 error_reason=error_reason['message']
                 status_code=resadd.status_code
@@ -131,7 +113,6 @@ def infochk():
             time.sleep(2)
             if time_diff > 0:
                 job_data=resadd.json()
-                print(job_data)
                 jid = job_data["jobid"]
                 jnm = job_data["jobname"]
                 sucess_message=f"THE JOB SCHEDULED TO ADD DOB WITH JOB DETAILS {jnm}({jid})"
@@ -148,12 +129,9 @@ def infochk():
                 err_desc=f"INFOCHK ERROR: REASON: {error_reason} WITH RETURN-CODE: {status_code}"
                 return redirect(url_for("mytools_route", error_reason=error_reason, status_code=status_code, err_desc=err_desc))
             
-            print(resadd.json())
-            # sys.exit()
             job_data=resadd.json()
             job_data=job_data[0]
             retcode=job_data["retcode"]
-            print(retcode[3:7])
             if int(retcode[3:7]) <= 4:
                 jid = job_data["jobid"]
                 jnm = job_data["jobname"]
@@ -168,4 +146,5 @@ def infochk():
                 return redirect(url_for("mytools_route", error_reason=error_reason, status_code=status_code, err_desc=err_desc))
 
     else:
+
        return render_template("infochk.html", disena="disabled")
