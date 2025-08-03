@@ -48,7 +48,7 @@ def infochk():
                 status_code=resfind.status_code
                 err_desc=f"INFOCHK ERROR: REASON: {error_reason} WITH RETURN-CODE: {status_code}"
                 return redirect(url_for("mytools_route", error_reason=error_reason, status_code=status_code, err_desc=err_desc)) 
-            time.sleep(2)
+            time.sleep(4)
             iurl="/restfiles/ds/"+user+".ADDOUT"
             url=config.burl+iurl
             resfind = requests.get(url, headers=headers1, auth=auth, verify=False)
@@ -57,7 +57,7 @@ def infochk():
                 status_code=resfind.status_code
                 err_desc=f"INFOCHK ERROR: REASON: {error_reason} WITH RETURN-CODE: {status_code}"
                 return redirect(url_for("mytools_route", error_reason=error_reason, status_code=status_code, err_desc=err_desc))
-            time.sleep(2)
+            time.sleep(4)
             db2_dob=resfind.text.strip()
             if db2_dob =='DOB':
                 err="OOPS! DETAILS NOT FOUND IN DATABASE, PLEASE ADD YOUR DETAILS WITH ADD BUTTON"
@@ -148,3 +148,4 @@ def infochk():
     else:
 
        return render_template("infochk.html", disena="disabled")
+
