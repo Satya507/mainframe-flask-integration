@@ -16,7 +16,7 @@ A full-stack web application built using **Flask, z/OSMF, and Mainframe technolo
 - **COBOL + DB2** handles input from the HTML UI for insert/update and error management
 - **JCL** is used to execute **REXX** and **COBOL** programs in batch mode
 
-
+🚀Project Structure
 - app2.py              # Main **Flask** application
 - login_logic.py       # Logic for **RACF** login functionality
 - mytools_logic.py     # Tool selection logic
