@@ -27,5 +27,4 @@ def login():
         else:
            return redirect(url_for("mytools_route"))       
     else:
-       print('satyyyy')
        return render_template("login.html")
