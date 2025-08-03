@@ -8,10 +8,10 @@ A full-stack web application built using **Flask, z/OSMF, and Mainframe technolo
 - Modular Codebase: Logic separated into individual modules for scalability
 - Simple session management using Flask’s session
 - Demonstration of **z/OSMF REST services** connecting the Flask app to Mainframe for:
-- JCL submission
-- Mainframe dataset creation
-- Writing data to datasets
-- Retrieving job details from SDSF
+  JCL submission
+  Mainframe dataset creation
+  Writing data to datasets
+  Retrieving job details from SDSF
 - **REXX** is used to interact with DB2 for selecting/updating data
 - **COBOL + DB2** handles input from the HTML UI for insert/update and error management
 - **JCL** is used to execute **REXX** and **COBOL** programs in batch mode
@@ -20,7 +20,7 @@ A full-stack web application built using **Flask, z/OSMF, and Mainframe technolo
 - app2.py              # Main **Flask** application
 - login_logic.py       # Logic for **RACF** login functionality
 - mytools_logic.py     # Tool selection logic
-- infochk_logic.py     # Info check (search/add person, **DOB**)
+- infochk_logic.py     # Info check (search/add person, DOB)
 - logging_logic.py     # Logging setup (optional)
 - templates/           # **HTML** templates (Jinja2)
 - rexxdb2f.rexx        # **REXX** to connect to **DB2** and fetch data
