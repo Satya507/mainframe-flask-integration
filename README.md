@@ -2,7 +2,7 @@
 A full-stack web application built using **Flask, z/OSMF, and Mainframe technologies (REXX + COBOL + JCL + DB2)**. It allows users to log in with RACF credentials and perform mainframe-related operations through a web interface such as selecting tools and checking or adding personal information like name and date of birth.
 
 🚀 Features
-•	User Login: Secure login using **RACF** credentials
+- User Login: Secure login using **RACF** credentials
 •	Tool Selection Page: Choose from available tools after login
 •	Info Check Tool: Add or find a person by name, and if not found, add name and DOB (Date of Birth)
 •	Modular Codebase: Logic separated into individual modules for scalability
