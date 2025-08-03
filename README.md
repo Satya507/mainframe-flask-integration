@@ -5,16 +5,16 @@ A full-stack web application built using **Flask, z/OSMF, and Mainframe technolo
 - User Login: Secure login using **RACF** credentials
 - Tool Selection Page: Choose from available tools after login
 - Info Check Tool: Add or find a person by name, and if not found, add name and DOB (Date of Birth)
-•	Modular Codebase: Logic separated into individual modules for scalability
-•	Simple session management using Flask’s session
-•	Demonstration of **z/OSMF REST services** connecting the Flask app to Mainframe for:
-•	JCL submission
-•	Mainframe dataset creation
-•	Writing data to datasets
-•	Retrieving job details from SDSF
-•	**REXX** is used to interact with DB2 for selecting/updating data
-•	**COBOL + DB2** handles input from the HTML UI for insert/update and error management
-•	**JCL** is used to execute **REXX** and **COBOL** programs in batch mode
+- Modular Codebase: Logic separated into individual modules for scalability
+- Simple session management using Flask’s session
+- Demonstration of **z/OSMF REST services** connecting the Flask app to Mainframe for:
+- JCL submission
+- Mainframe dataset creation
+- Writing data to datasets
+- Retrieving job details from SDSF
+- **REXX** is used to interact with DB2 for selecting/updating data
+- **COBOL + DB2** handles input from the HTML UI for insert/update and error management
+- **JCL** is used to execute **REXX** and **COBOL** programs in batch mode
 
 
 app2.py              # Main **Flask** application
