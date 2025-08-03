@@ -2,11 +2,11 @@
 PULL PNAME                                                              00011000
 SAY 'PNAME:'PNAME                                                       00012000
 ADDRESS TSO                                                             00012100
-/*"TSOLIB ACTIVATE DATASET('DSND10.SDSNLOAD')"*/                        00013000
+/*"TSOLIB ACTIVATE DATASET('DB2SYS.SDSNLOAD')"*/                        00013000
 "SUBCOM DSNREXX"                                                        00020000
 SAY RC                                                                  00030000
 S_RC = RXSUBCOM('ADD','DSNREXX','DSNREXX')                              00040000
-ADDRESS DSNREXX "CONNECT "'DBDG'                                        00050000
+ADDRESS DSNREXX "CONNECT "'DB2SYS'                                      00050000
 SAY RC                                                                  00060000
 SAY 'CONN:'SQLCODE                                                      00070000
                                                                         00080000
@@ -33,7 +33,7 @@ SAY 'CLOS:'SQLCODE                                                      00330000
 ADDRESS DSNREXX "DISCONNECT"                                            00340000
 SAY 'DISC:'SQLCODE                                                      00350000
 ADDRESS 'TSO'                                                           00360000
-INFILE='Z30658.ADDOUT'                                                  00470000
+INFILE='USER.ADDOUT'                                                    00470000
 IF SYSDSN(INFILE) <> "OK" THEN DO                                       00480000
    "ALLOC FI(INDD) DA("INFILE") NEW",                                   00490000
    "SPACE(10,10) CYL",                                                  00500000
