@@ -3,8 +3,8 @@ A full-stack web application built using **Flask, z/OSMF, and Mainframe technolo
 
 🚀 Features
 - User Login: Secure login using **RACF** credentials
-•	Tool Selection Page: Choose from available tools after login
-•	Info Check Tool: Add or find a person by name, and if not found, add name and DOB (Date of Birth)
+- Tool Selection Page: Choose from available tools after login
+- Info Check Tool: Add or find a person by name, and if not found, add name and DOB (Date of Birth)
 •	Modular Codebase: Logic separated into individual modules for scalability
 •	Simple session management using Flask’s session
 •	Demonstration of **z/OSMF REST services** connecting the Flask app to Mainframe for:
