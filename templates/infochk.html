@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Info Check</title>
+    <style>
+        .alert-danger {
+            color: red;
+            /* Change the color to your desired value */
+            font-size: 20px;
+            margin-bottom: 12px;
+            /* Adjust the margin as needed */
+            margin-left: -45px;
+        }
+
+        .alert-success {
+            color: green;
+            /* Change the color to your desired value */
+            font-size: 20px;
+            margin-bottom: 12px;
+            /* Adjust the margin as needed */
+            margin-left: -130px;
+        }
+
+        h3 {
+            font-size: 35px;
+            /* Adjust the font size as needed */
+            margin-bottom: 10px;
+            /* Adjust the margin as needed */
+            margin-left: -50px;
+        }
+
+        h1 {
+            font-size: 18px;
+            /* Adjust the font size as needed */
+            margin-bottom: 20px;
+            /* Adjust the margin as needed */
+            margin-left: -130px;
+        }
+
+        p {
+            font-size: 17px;
+            /* Adjust the font size as needed */
+            margin-left: 49px;
+        }
+
+        td {
+            font-size: 17px;
+            /* Adjust the font size as needed */
+            padding-right: 20px;
+        }
+
+        .spaced-label {
+            padding-right: 2px;
+        }
+
+        .sdtim {
+            font-size: 15px;
+            /* Adjust the font size as needed */
+            /*margin-left: 15px;*/
+            width: 188px;
+        }
+
+        input {
+            font-size: 15px;
+            /* Adjust the font size as needed */
+            /*margin-left: 15px;*/
+            width: 100px;
+        }
+
+        .sub {
+            font-size: 14px;
+            /* Adjust the font size as needed */
+            margin-left: 500px;
+        }
+
+        .pname {
+            font-size: 15px;
+            width: 100px;
+            /* Adjust the font size as needed */
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .dob {
+            font-size: 15px;
+            width: 125px;
+            /* Adjust the font size as needed */
+
+        }
+
+        .name {
+            font-size: 15px;
+            width: 125px;
+            /* Adjust the font size as needed */
+
+        }
+
+        .sub {
+            display: flex;
+            gap: 10px;
+            margin-left: 455px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h3>WELCOME TO INFORMATION PAGE</h3>
+        <h1>PLEASE ENTER YOUR YOUR DETAILS</h1>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message | safe }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <td class="spaced-label">NAME:</td>
+                    <td><input class="pname" type="text" name="pname" value="{{ pname }}" maxlength="10" required>
+                    </td>
+                    <td class="spaced-label">DOB:</td>
+                    <td><input class="dob" type="date" name="dob" {{ disena }} value="{{ dob }}" required>
+                    </td>
+                    <td class="spaced-label">SCHEDULE DATE & TIME:</td>
+                    <td><input class="sdtim" type="datetime-local" name="sdtim" {{ disena }} value="{{ sdtim }}">
+                    </td>
+                </tr>
+            </table>
+            <div class="sub">
+                <input type="submit" name="findadd" value="find" />
+                <input type="submit" name="findadd" {{ disena }} value="add" />
+            </div>
+        </form>
+    </center>
+    <script>
+        // Disable Back and Forward navigation
+        history.pushState(null, null, window.location.href);  // Add an entry to the history
+        window.onpopstate = function () {
+            history.go(1);  // Force the browser to move forward when a back navigation is attempted
+        };
+
+        // You can also reset the history each time to prevent forward navigation
+        window.onload = function () {
+            history.pushState(null, null, window.location.href);  // Overwrite the current history state
+        };
+    </script>
+</body>
+
+</html>
